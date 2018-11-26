@@ -15,7 +15,7 @@
  var guessleft = event.key;
 
  // Randomly chooses a choice from the options array. This is the Computer's choices.
- var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length);
+ var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
 
    if(userGuess === computerGuess){
    wins++;
