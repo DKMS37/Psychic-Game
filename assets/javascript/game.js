@@ -1,4 +1,4 @@
- /// Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+ /// Creates an array that lists out all of the options (alphabet letters).
  var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
  var wins = 0;
@@ -14,8 +14,8 @@
  var userText = event.key;
  var guessleft = event.key;
 
- // Randomly chooses a choice from the options array. This is the Computer's guess.
- var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
+ // Randomly chooses a choice from the options array. This is the Computer's choices.
+ var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length);
 
    if(userGuess === computerGuess){
    wins++;
