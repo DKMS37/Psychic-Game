@@ -10,26 +10,32 @@
 
 
 // This function is run whenever the user presses a key.
- document.onkeyup = function(event) { 
-// Determines which key was pressed.
-    var userGuess = event.key;
-    var userText = event.key;
+    document.onkeyup = function(event) { 
+// *FOUND THIS SOLUTION*
+// "String from Character Code" 
+//  Determines which key was pressed, will also avoid userGuess from choosing the same letter and subtracting 1 from Guesses Left.
+    var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+    // var userGuess = event.key;
+    // var userText = event.key;
 // Randomly chooses a choice from the options array. This is the Computer's choices.
     var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
-
+// This function is run to restart Guesses Left, Letter Guessed so far, and computerGuess.
     var restart = function(){
       guessLeft = 9; 
       userText = [];
       computerGuess;
   };
+    if(userText.indexOf(userGuess) < 0 && computerChoices.indexOf(userGuess) >= 0){userText[userText.length]=userGuess;
+     guessLeft--;
+    };
 
     if(userGuess === computerGuess){
       wins++;
       restart();
-  }
-    else (userGuess === userText);{
-      guessLeft--; 
   };
+  //   else (userGuess === userText);{
+  //     guessLeft--; 
+  // };
 
     if (guessLeft === 0){
       losses++;
@@ -48,4 +54,4 @@
   document.getElementById("guessLeft").textContent = guessLeft;
   document.getElementById("userText").textContent = userText;
 
-};
+}
