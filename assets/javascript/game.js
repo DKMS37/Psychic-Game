@@ -12,45 +12,48 @@
    // Determines which key was pressed.
  var userGuess = event.key;
  var userText = event.key;
- var guessleft = event.key;
 
+ 
  // Randomly chooses a choice from the options array. This is the Computer's choices.
  var computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
 
-   if(userGuess === computerGuess){
-   wins++;
-   guessLeft = 9; 
-   userText = [];
-   computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
-   }
 
-   if (userGuess === computerChoices){
-     guessLeft--;
+ if(userGuess === computerGuess){
+  wins++;
+  guessLeft = 10; 
+  userText = [];
+  computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
+  }
+
+  // if (userGuess === computerChoices){
+  //   guessLeft--;
+    
+  // }
    
-   }
+  else (userGuess === userText);{
+    guessLeft--;
+      
+  }
 
-   if (userGuess === userText){
-     guessLeft--;   
-   }
+  if (guessLeft === 0){
+    losses++;
+    guessLeft = 9;
+    userText = [];
+    computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
 
-   if (guessLeft === 0){
-     losses++;
-     guessLeft = 9;
-     userText = [];
-     computerGuess = computerChoices[Math.floor(Math.random()* computerChoices.length)];
+  }
+  console.log("userGuess: " + userGuess);
+  console.log("comp guess: " + computerGuess);
+  console.log("wins: "+ wins);
+  console.log("guessLeft: " + guessLeft);
+  console.log("losses: " + losses); 
+  
 
-   }
-        
+  document.getElementById("wins").textContent = wins;
+  document.getElementById("losses").textContent = losses;
+  document.getElementById("guessLeft").textContent = guessLeft;
+  document.getElementById("userText").textContent = userText;
 
-   console.log("userGuess: " + userGuess);
-   console.log("comp guess: " + computerGuess);
-   console.log("wins: ");
-   console.log("guessLeft: ");
-   console.log("event.key: ");
 
-   document.getElementById("wins").textContent = wins;
-   document.getElementById("losses").textContent = losses;
-   document.getElementById("guessLeft").textContent = guessLeft;
-   document.getElementById("userText").textContent = userText;
 
 };
